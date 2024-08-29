@@ -20,7 +20,7 @@ async function getAdminAccount(client: any) {
   });
 }
 
-export async function verifyTelegram(signature: string, message: string) {
+ async function verifyTelegram(signature: string, message: string) {
   const client = await getClient();
   const adminAccount = await getAdminAccount(client);
 
@@ -48,7 +48,7 @@ export async function verifyTelegram(signature: string, message: string) {
   return metadata.username;
 }
 
-export async function POST(request: NextRequest) {
+ async function POST(request: NextRequest) {
   const { payload } = await request.json();
   const { signature, message } = JSON.parse(payload);
 
